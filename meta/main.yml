@@ -1,0 +1,21 @@
+---
+galaxy_info:
+  author: John Favorite
+  description: Ansible role to install and configure OpenStack Message Queue (RabbitMQ) packages
+  company: none
+
+  license: license (BSD, MIT)
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags:
+    - openstack
+    - rocky
+    - rabbitmq
+
+dependencies: []

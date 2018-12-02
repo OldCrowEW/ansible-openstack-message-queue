@@ -1,0 +1,27 @@
+---
+language: python
+services:
+  - docker
+
+# Install python-pip
+addons:
+  apt:
+    packages:
+      - python-pip
+
+install:
+  # Install molecule
+  - pip install molecule docker
+
+  # Check molecule version
+  - molecule --version
+
+  # Check ansible version
+  - ansible --version
+
+script:
+  # Run tests
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

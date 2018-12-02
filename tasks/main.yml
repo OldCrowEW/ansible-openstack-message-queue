@@ -1,0 +1,23 @@
+---
+# tasks file for ansible-openstack-message-queue
+- name: Install RabbitMQ
+  yum:
+    name: rabbitmq-server
+    state: present
+
+- name: Ensure RabbitMQ is started and enabled
+  service:
+    name: rabbitmq-server
+    state: started
+    enabled: true
+
+- name: Add openstack user to RabbitMQ - Permit configuration, write, and read access
+  rabbitmq_user:
+    user: openstack
+    password: RABBIT_PASS
+    permissions:
+      - vhost: /
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
+    state: present
